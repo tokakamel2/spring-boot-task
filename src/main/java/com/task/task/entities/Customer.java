@@ -2,10 +2,8 @@ package com.task.task.entities;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Data
@@ -18,5 +16,9 @@ public class Customer {
     private String nationalID;
     private int phoneNumber;
     private String address;
+
+    @ManyToMany(mappedBy = "customersProduct")
+    private List<Product> productCustomer;
+
 
 }
